@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1508461187 source:d:\cristian aravena\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+	"movie.h"
+
+1508450702 d:\cristian aravena\tp3\validar.h
+
+1508461903 d:\cristian aravena\tp3\movie.h
+
+1508461724 source:d:\cristian aravena\tp3\movie.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+	"movie.h"
+
+1508450702 source:d:\cristian aravena\tp3\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"validar.h"
+
