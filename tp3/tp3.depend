@@ -24,3 +24,28 @@
 	<time.h>
 	"validar.h"
 
+1508783512 source:c:\users\hunter\desktop\tp3\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+	"movie.h"
+
+1508779192 c:\users\hunter\desktop\tp3\tp3\validar.h
+
+1508783222 c:\users\hunter\desktop\tp3\tp3\movie.h
+
+1508783788 source:c:\users\hunter\desktop\tp3\tp3\movie.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+	"movie.h"
+
+1508783583 source:c:\users\hunter\desktop\tp3\tp3\validar.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"validar.h"
+

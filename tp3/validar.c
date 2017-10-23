@@ -568,3 +568,145 @@ int val_getAlfanumerico(char* destino, char* mensaje,char* mensajeError,int inte
 }
     return retorno;
 }
+
+/** \brief para una cierta cantidad de intentos se ejecuta el Mygets y se almacena en un buffer que se valida con esDireccion()
+ *   si retorna -1 (error) se descuenta 1 intento y se continua con el ciclo si no tira error se copia en el destino
+ *
+ * \param destino puntero a donde se va a almacenar lo ingresado
+ * \param  mensaje a mostrar ingresado por el usuario
+ * \param mensajeError el mensaje a mostrar en caso de Error
+ * \param intentos la cantidad de oportunidades para ingresar bien lo que se solicita
+ * \param limite es la cantidad de elementos maxima
+ * \return retorno : -1 (error) ; 0 (funciona correctamente)
+ *
+ */
+
+int val_getAlfaNumerico_Espacio(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
+{
+    int retorno = -1;
+    char buffer[MAX_INPUT_BUFFER];
+
+    if(destino != NULL && limite > 0 && limite < MAX_INPUT_BUFFER)
+    {
+        printf(mensaje);
+        for( ;intentos>0;intentos--)
+        {
+            myFgets(buffer, limite ,stdin);
+
+            if(esAlfaNumerico_Espacio(buffer) != 0)
+            {
+               printf(mensajeError);
+                continue;
+            }
+             else
+            {
+                strncpy(destino,buffer,limite);
+                retorno = 0;
+                break;
+            }
+        }
+}
+    return retorno;
+}
+
+/**
+ * \brief Verifica si el valor recibido contiene solo letras y números (permite espacios)
+ * \param str Array con la cadena a ser analizada
+ * \return 0 si contiene letras y números, y -1 si no
+ *
+ */
+int esAlfaNumerico_Espacio(char str[])
+{
+   int i=0;
+   int retorno=-1;
+   while(str[i] != '\0')
+   {
+        if((str[i] >= 'a' || str[i] <= 'z')|| (str[i] >= 'A' || str[i] <= 'Z')|| (str[i] >= '0' || str[i] <= '9')||(str[i]== 32))
+        {
+                    retorno = 0;
+
+        }
+
+    i++;
+   }
+
+
+    return retorno;
+}
+
+/**
+ * \brief Verifica si el valor recibido contiene solo números y '.'
+ * \param str Array con la cadena a ser analizada
+ * \return 0 si contiene solo numeros y letras y un punto. -1 si no funciona. -2 si tiene mas de un punto
+ *
+ */
+int esNombreArchivo(char str[])
+{
+   int i=0;
+   int retorno=-1;
+   int contadorPuntos=0;
+
+
+   while(str[i] != '\0')
+   {
+       if((str[i] == '.') || (str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= 'z'))
+        {
+        retorno=0;
+        }
+
+       if(str[i] == '.')
+       {
+        contadorPuntos++;
+       }
+       i++;
+   }
+
+   if(contadorPuntos>1)
+   {
+        retorno=-2;
+   }
+
+    return retorno;
+}
+
+
+
+/** \brief para una cierta cantidad de intentos se ejecuta el Mygets y se almacena en un buffer que se valida con esNombreArchivo()
+ *   si retorna -1 (error) se descuenta 1 intento y se continua con el ciclo si no tira error se copia en el destino
+ *
+ * \param destino puntero a donde se va a almacenar lo ingresado
+ * \param  mensaje a mostrar ingresado por el usuario
+ * \param mensajeError el mensaje a mostrar en caso de Error
+ * \param intentos la cantidad de oportunidades para ingresar bien lo que se solicita
+ * \param limite es la cantidad de elementos maxima
+ * \return retorno : -1 (error) ; 0 (funciona correctamente)
+ *
+ */
+
+int val_getNombreArchivo(char* destino, char* mensaje,char* mensajeError,int intentos,int limite)
+{
+    int retorno = -1;
+    char buffer[MAX_INPUT_BUFFER];
+
+    if(destino != NULL && limite > 0 && limite < MAX_INPUT_BUFFER)
+    {
+        printf(mensaje);
+        for( ;intentos>0;intentos--)
+        {
+            myFgets(buffer, limite ,stdin);
+
+            if(esNombreArchivo(buffer) != 0)
+            {
+               printf(mensajeError);
+                continue;
+            }
+             else
+            {
+                strncpy(destino,buffer,limite);
+                retorno = 0;
+                break;
+            }
+        }
+}
+    return retorno;
+}

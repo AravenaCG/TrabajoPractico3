@@ -36,3 +36,8 @@ void clean_stdin(void);
 void pause(char message[]);
 char getChar(char mensaje[]);
 int val_getAlfanumerico(char* destino, char* mensaje,char* mensajeError,int intentos,int limite);
+int esAlfaNumerico_Espacio(char str[]);
+int val_getAlfaNumerico_Espacio(char* destino, char* mensaje,char* mensajeError,int intentos,int limite);
+int val_getNombreArchivo(char* destino, char* mensaje,char* mensajeError,int intentos,int limite);
+int esNombreArchivo(char str[]);
+
